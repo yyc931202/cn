@@ -15,7 +15,7 @@
 		
 		
 	请注意：
-    * 作解绑后需要几分钟生效，还请耐心等待后刷新页面。
+    * 解绑后需要几分钟生效，还请耐心等待后刷新页面。
     * 解绑后路由会自动更新，用户不需要额外配置。路由配置包括两部分: a.删除该辅助网卡对应的策略路由规则。b.删除该辅助网卡对应的默认路由。
 
 此外您还可以从弹性网卡控制台进行解绑操作，详细步骤请参见[弹性网卡侧解绑弹性网卡](../../../../../Networking/Elastic-Network-Interface/Operation-Guide/Elastic-Network-Interface-Management/Disassociate-Elastic-Network-Interface.md)。
