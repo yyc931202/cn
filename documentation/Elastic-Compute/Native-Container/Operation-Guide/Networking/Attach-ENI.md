@@ -39,7 +39,7 @@
 		* 绑定后路由会自动更新，用户不需要额外配置。路由配置包括两部分: a.增加策略路由规则，从外部主动访问辅助网卡的回包会从该网卡返回。b.增加一条默认路由，metric设置为xxxxx，出包默认走主网卡，如主网卡故障后，出流量会走metric最小的辅网卡。
 		
 
-此外您还可以从弹性网卡控制台进行绑定操作，详细步骤请参见[弹性网卡侧绑定弹性网卡](../../../../../Networking/Elastic-Network-Interface/Operation-Guide/Elastic-Network-Interface-Management/Associate-Elastic-Network-Interface.md)。
+此外您还可以从弹性网卡控制台进行绑定操作，详细步骤请参见[弹性网卡侧绑定弹性网卡](../../../../Networking/Elastic-Network-Interface/Operation-Guide/Elastic-Network-Interface-Management/Associate-Elastic-Network-Interface.md)。
 
 ## 相关参考
 
