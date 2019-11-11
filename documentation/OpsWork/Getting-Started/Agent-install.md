@@ -8,7 +8,7 @@
 
 在购买云主机的界面中，使用高级选项，并编写agent安装命令即可。如图所示：
 
-![](../../../../image/opswork/install1.PNG)
+ ![](../../../../image/opswork/install1.PNG)
 
 
 注意：要分两行，第一行的内容是：“#!/bin/bash” 第二行是agent安装命令。
@@ -23,7 +23,7 @@ curl -fsSL http://deploy-code-vpc.jdcloud.com/dl-ifrit-agents/install_deploy | b
 
 以向华北-北京地域的云主机安装Agent为例，
 
-![](../../../../image/opswork/install2.PNG)
+ ![](../../../../image/opswork/install2.PNG)
 
 **获取Agent状态**
 
