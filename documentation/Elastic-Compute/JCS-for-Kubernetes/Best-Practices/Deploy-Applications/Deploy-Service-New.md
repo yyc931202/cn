@@ -10,12 +10,15 @@
 - 一个service port 对应一组负载均衡监听器和后端服务器；
 - 如多组service port关联相同的nodeport，则监听器将关联到相同的后端服务；
 
+**service.beta.kubernetes.io/jdcloud-load-balancer-spec** 
+- 此annotation可以指定，也可以不指定，如果不指定，行为与原有的service的插件一致，默认创建ALB实例
+- 用于定义JD LB的各项参数，支持变更
 
 ```
 version: "v1"                                            # 【版本号】只支持"v1"
 loadBalancerId: "alb-xxxxxx"                             # 重用已有的LB，此参数指定以后，只有listeners,nodeSelector的设置会生效,其他的设置会被忽略，如果listener端口重复会报错
 loadBalancerType: "alb(default)/nlb/dnlb"                # 【必填项】要创建的JD LB的类型,创建后不支持变更
-securityGroupIds: ["sg-xxxxxxxx1","sg-xxxxxxxx2"]        # 变更会触发SG的绑定解绑，最后一个SG不能解绑
+securityGroupIds: ["sg-xxxxxxxx1","sg-xxxxxxxx2"]        # 可选项，如不指定则绑定默认安全组，变更会触发SG的绑定解绑，最后一个SG不能解绑
 internal: true/false(default)                            # true表示LB实例不会绑定公网IP，只内部使用；false表示为外部服务，会绑定公网IP。修改可能会触发IP的创建，绑定或者解绑，不会自动删除
 elasticIp:                                               # 默然创建按配置收费
   elasticIpId: "fip-xxxxxxxxxxx"                         # 创建时不为空则不会创建新的FIP，更换LB绑定的公网IP，如果IP已经被其他资源绑定则报错
