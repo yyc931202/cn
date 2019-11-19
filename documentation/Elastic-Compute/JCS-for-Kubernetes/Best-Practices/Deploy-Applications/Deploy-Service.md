@@ -1,5 +1,5 @@
 
-# 部署Service
+# 部署Service(老版本)
 
 **Kubernetes Service**   
 - Kubernetes Service定义了这样一种抽象：一个 Pod 的逻辑分组，一种可以访问它们的策略-通常称为微服务。这一组 Pod 能够被 Service 访问到，通常是通过 Label Selector（查看下面了解，为什么可能需要没有 selector 的 Service）实现的。一个 Service 在 Kubernetes 中是一个REST对象，和Pod类似.像所有的 REST 对象一样， Service 定义可以基于 POST 方式，请求 apiserver 创建新的实例。  
