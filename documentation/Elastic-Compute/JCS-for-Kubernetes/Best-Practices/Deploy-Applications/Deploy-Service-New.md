@@ -64,21 +64,62 @@ listeners:                                               # 每个port对应的LB
 nodeSelector: "key1=value,key2 in (aaa,bbb,ccc)"         # key是node的lable里的key，value是node的lable里的value，可手工指定哪些node绑定到LB的后端，在集群规模比较大的时候，不需要将所有node都绑定到LB后端，减少由于集群的伸缩而造成的LB后端的频繁变化
 
 ```
-
 1、创建LoadBalancer alb类型的service，命名为myservice.yaml文件定义如下：
 ```
 kind: Service
 apiVersion: v1
 metadata:
-  name: servicetest
+  name: myservice
   labels:
     run: myapp
+  annotations:
+    service.beta.kubernetes.io/jdcloud-load-balancer-spec: |
+      version: "v1"  
+      loadBalancerType: alb
+      internal: false
+      elasticIp:
+        bandwidthMbps: 10
+        provider: "bgp"
+        reclaimPolicy: "delete"
+      listeners:
+        - protocol: "https"
+          certificateId: "cert-xznjiosne5" 
+          connectionIdleTimeSeconds: 1800
+          backend:
+            sessionStickiness: false
+            algorithm: "IpHash"
+        - protocol: "http"
+          connectionIdleTimeSeconds: 1800
+          backend:
+            proxyProtocol: false
+            sessionStickiness: false
+            algorithm: "LeastConn"
+            httpCookieExpireSeconds: 0
+            httpForwardedProtocol: false
+            httpForwardedPort: false
+            httpForwardedHost: false
+            httpForwardedVip: false
+        - protocol: "tcp"
+        - protocol: "tls"
+          certificateId: "cert-xznjiosne5"
 spec:
+  externalTrafficPolicy: Local
   ports:
-    - protocol: TCP
-      port: 80
+    - name: https
+      protocol: TCP
+      port: 8080
       targetPort: 80
-      nodePort: 30062
+      nodePort: 30789
+    - name: http
+      protocol: TCP
+      port: 8081
+      targetPort: 80
+    - name: tcp
+      port: 8082
+      targetPort: 80
+    - name: tls
+      port: 8083
+      targetPort: 80
   type: LoadBalancer
   selector:
      run: myapp
@@ -86,6 +127,7 @@ spec:
 
 2、执行kubectl创建命令，创建一个service；其中使用相应的yaml文件名称替换  
 `kubectl create -f myservice.yaml`  
+
 3、创建一组nginx pod，mynginx.yaml文件定义如下：
 ```
 apiVersion: apps/v1beta1
@@ -129,23 +171,31 @@ my-nginx-864b5bfdc7-6297s   1/1       Running   0          23m       172.16.0.10
 my-nginx-864b5bfdc7-lr7gq   1/1       Running   0          23m       172.16.0.42   k8s-node-vm25q1-0vy9nuo0ym
 ```
 7、查看service详情：  
-`kubectl describe service servicetest`  
-可以查看绑定到service的endpoints: 
+`kubectl describe service myservice`    
 ```
-Name:                     servicetest
-Namespace:                default
-Labels:                   run=myapp
-Annotations:              <none>
 Selector:                 run=myapp
 Type:                     LoadBalancer
-IP:                       172.16.61.58
-LoadBalancer Ingress:     114.67.227.25
-Port:                     <unset>  80/TCP
+IP:                       10.0.253.58
+LoadBalancer Ingress:     114.67.110.200, 10.0.240.11
+Port:                     https  8080/TCP
 TargetPort:               80/TCP
-NodePort:                 <unset>  30062/TCP
-Endpoints:                172.16.0.10:80,172.16.0.42:80
+NodePort:                 https  30789/TCP
+Endpoints:                10.0.192.15:80,10.0.192.5:80
+Port:                     http  8081/TCP
+TargetPort:               80/TCP
+NodePort:                 http  31353/TCP
+Endpoints:                10.0.192.15:80,10.0.192.5:80
+Port:                     tcp  8082/TCP
+TargetPort:               80/TCP
+NodePort:                 tcp  32477/TCP
+Endpoints:                10.0.192.15:80,10.0.192.5:80
+Port:                     tls  8083/TCP
+TargetPort:               80/TCP
+NodePort:                 tls  32761/TCP
+Endpoints:                10.0.192.15:80,10.0.192.5:80
 Session Affinity:         None
-External Traffic Policy:  Cluster
+External Traffic Policy:  Local
+HealthCheck NodePort:     31614
 Events:
   Type     Reason                      Age                From                Message
   ----     ------                      ----               ----                -------
@@ -153,14 +203,7 @@ Events:
   Normal   EnsuredLoadBalancer         10m                service-controller  Ensured load balancer
 
 ```  
-**注：LoadBalancer Ingress:114.67.227.25为外部公网IP**  
-8、执行如下命令查询绑定到service的enpoints列表：  
-`kubectl get ep servicetest`  
-  返回：  
-```
-NAME          ENDPOINTS                       AGE
-servicetest   172.16.0.10:80,172.16.0.42:80   28m
-```
-9、在浏览器中输入与service关联的LoadBalance公网IP及端口，看到如下页面，即表明nginx服务正常。  
-![](https://github.com/jdcloudcom/cn/blob/edit/image/Elastic-Compute/JCS-for-Kubernetes/nginx.jpg)
+**注：LoadBalancer Ingress:114.67.110.200为外部公网IP，"Ensured load balancer"代表load balancer创建成功**  
 
+8、在浏览器中输入与service关联的LoadBalance公网IP及端口，看到如下页面，即表明nginx服务正常。也可以通过curl命令来验证   
+![](https://github.com/jdcloudcom/cn/blob/edit/image/Elastic-Compute/JCS-for-Kubernetes/nginx.jpg)
