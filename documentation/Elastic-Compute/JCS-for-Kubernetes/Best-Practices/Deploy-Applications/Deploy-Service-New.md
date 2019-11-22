@@ -64,6 +64,7 @@ listeners:                                               # 每个port对应的LB
 nodeSelector: "key1=value,key2 in (aaa,bbb,ccc)"         # key是node的lable里的key，value是node的lable里的value，可手工指定哪些node绑定到LB的后端，在集群规模比较大的时候，不需要将所有node都绑定到LB后端，减少由于集群的伸缩而造成的LB后端的频繁变化
 
 ```
+## 创建ALB service
 1、创建LoadBalancer alb类型的service，命名为myservice.yaml文件定义如下：
 ```
 kind: Service
@@ -207,3 +208,15 @@ Events:
 
 8、在浏览器中输入与service关联的LoadBalance公网IP及端口，看到如下页面，即表明nginx服务正常。也可以通过curl命令来验证   
 ![](https://github.com/jdcloudcom/cn/blob/edit/image/Elastic-Compute/JCS-for-Kubernetes/nginx.jpg)
+
+## 创建NLB service
+1、创建LoadBalancer nlb类型的service，命名为nlbservice.yaml文件定义如下：
+
+2、测试和验证的步骤和alb service一致
+
+## 创建DNLB service
+1、创建LoadBalancer nlb类型的service，命名为nlbservice.yaml文件定义如下：
+
+2、测试和验证的步骤和alb service一致
+
+
