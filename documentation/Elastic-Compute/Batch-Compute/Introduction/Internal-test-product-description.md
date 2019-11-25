@@ -3,13 +3,15 @@
 批量计算（BatchCompute）是一种适用于大规模并行批处理作业的分布式云服务。支持海量任务自动调度，资源管理和数据加载，并按实际使用量计费。
 ## 1.2 产品架构
 
- ![产品架构](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/Architecture.png)
- 
-**产品入口：** 控制台、SDK、API
+ **产品入口：** 控制台、SDK、API
 
 **运行环境：** 云主机，用户可采用batch基础镜像或自定义镜像方式创建运行环境，支持windows\linux操作系统，用户程序运行在私有网络中
 
 **持久化存储：** 输入输出数据、用户程序包的持久化存储采用对象存储OSS或云文件服务CFS。（linux使用CFS或OSS，win使用CFS）
+
+ ![产品架构](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/Architecture.png)
+ 
+
 
 ## 1.3 核心概念
 **作业（Job）：** 用户提交batch工作的最小单位，作业由单个或多个由前后依赖关系的任务组成，通过DAG（有向无环图）为多个任务设置依赖关系，共同组成一个作业，依赖关系在作业提交时指定，不可修改。作业之间可指定优先级顺序。
