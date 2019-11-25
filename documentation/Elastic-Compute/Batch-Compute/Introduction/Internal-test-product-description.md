@@ -2,6 +2,8 @@
 ## 1.1 产品概述
 批量计算（BatchCompute）是一种适用于大规模并行批处理作业的分布式云服务。支持海量任务自动调度，资源管理和数据加载，并按实际使用量计费。
 ## 1.2 产品架构
+
+ ![产品架构](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/Architecture.png)
  
 **产品入口：** 控制台、SDK、API
 
