@@ -5,9 +5,9 @@
 
  **产品入口：** 控制台、SDK、API。
 
-**运行环境：** 云主机，用户可采用batch基础镜像或自定义镜像方式创建运行环境，支持windows\linux操作系统，用户程序运行在私有网络中。
+**运行环境：** 云主机，用户可采用batch基础镜像或自定义镜像方式创建运行环境，支持Windows\Linux系统，用户程序运行在私有网络中。
 
-**持久化存储：** 输入输出数据、用户程序包的持久化存储采用对象存储OSS或云文件服务CFS（linux使用CFS或OSS，win使用CFS）。
+**持久化存储：** 输入输出数据的持久化存储采用对象存储OSS或云文件服务CFS（Linux系统使用CFS或OSS，Windows系统使用CFS）。
 
  ![产品架构](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/Architecture.png)
  
@@ -43,7 +43,7 @@
 
 **提交作业**
 
-batch使用云文件服务CFS和对象存储OSS作为用户数据输入和输出的持久化存存储，您可以根据计算环境的运行系统自行选择，linux系统请任意选择CFS或OSS作为数据的输入和输出，windows系统请使用CFS作为数据的输入和输出。
+batch使用云文件服务CFS和对象存储OSS作为用户数据输入和输出的持久化存存储，您可以根据计算环境的运行系统自行选择，Linux系统请任意选择CFS或OSS作为数据的输入和输出，Windows系统请使用CFS作为数据的输入和输出。
 
 batch使用对象存储OSS存储任务日志，包括标准日志和错误日志。
 
@@ -116,7 +116,9 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
 
 ### Step 2 创建任务模板
 
-1. 进去批量计算控制台
+1. 进入批量计算控制台，
+
+
 
 ### step 3：提交作业
 
