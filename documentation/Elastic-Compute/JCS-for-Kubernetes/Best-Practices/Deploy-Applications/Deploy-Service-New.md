@@ -13,6 +13,7 @@
 **service.beta.kubernetes.io/jdcloud-load-balancer-spec** 
 - 此annotation可以指定，也可以不指定，如果不指定，行为与原有的service的插件一致，默认创建ALB实例
 - 用于定义JD LB的各项参数，支持变更
+- 注：listener与port按顺序一一对应
 
 ```
 version: "v1"                                            # 【版本号】只支持"v1"
@@ -211,11 +212,43 @@ Events:
 
 ## 创建NLB service
 1、创建LoadBalancer nlb类型的service，命名为nlbservice.yaml文件定义如下：
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nlb
+  name: nlb
+  annotations:
+    service.beta.kubernetes.io/jdcloud-load-balancer-spec: |
+      version: "v1"
+      loadBalancerType: nlb
+      internal: false
+      listeners:
+        - protocol: "tcp"
+          connectionIdleTimeSeconds: 1800
+          backend:
+            connectionDrainingSeconds: 300
+            sessionStickyTimeout: 300
+            algorithm: "IpHash"
+spec:
+  ports:
+  - name: tcp
+    port: 8085
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: myapp
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+
+```
 
 2、测试和验证的步骤和alb service一致
 
 ## 创建DNLB service
-1、创建LoadBalancer nlb类型的service，命名为nlbservice.yaml文件定义如下：
+1、创建LoadBalancer nlb类型的service，命名为dnlbservice.yaml文件定义如下：
 
 2、测试和验证的步骤和alb service一致
 
