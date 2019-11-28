@@ -107,22 +107,19 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
 
 ### Step 1 作业准备
 
-1. 上传数据文件到存储服务，若您的业务基于Linux系统，您可以选择对象存储OSS或云文件服务CFS作为数据文件持久化存储；若您的业务是基于Windows系统，请选择云文件服务CFS作为数据文件持久化存储。
-
-2. 上传任务程序到对象存储OSS，或考虑将任务程序打包至自定义镜像。
-
+1.上传数据文件到存储服务，若您的业务基于Linux系统，您可以选择对象存储OSS或云文件服务CFS作为数据文件持久化存储；若您的业务是基于Windows系统，请选择云文件服务CFS作为数据文件持久化存储。
+2.上传任务程序到对象存储OSS，或考虑将任务程序打包至自定义镜像。
 3.（可选） 创建对象存储bucket，用于存储任务运行的标准日志和错误日志。
-
 
 ### Step 2 创建任务模板
 
 1. 进入批量计算控制台，单击左侧导航栏“任务模板”--“新建任务模板”。
 
-**配置基本信息：
+2. 配置基本信息：
 
 区域（默认）：华北-北京
 
-描述（可选）：空
+任务模板名称：batch-hello
 
 计算环境类型： 选择自动计算环境（也可选择已创建的计算环境，详情请参考计算环境）
              
@@ -132,7 +129,7 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
    
    * 实例规格：g.n2.medium（1核4GB）
   
-   * 镜像：官方镜像--
+   * 镜像：官方镜像 -- Batch-CentOS-6.9
   
    * 磁盘存储：系统盘--容量型HDD--40GB
   
@@ -144,11 +141,35 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
 
 重试次数（默认）：0
 
-**           
+![newtemplate1](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newtasktemplate.PNG)       
            
+3. 配置程序运行配置
 
+执行方式：package（程序包存储于对象存储OSS中，将hello.py文件打包为.zip文件上传至对象存储OSS相应bucket中）
 
+程序包地址：oss://batch-input-1/gx-test/
 
+Stdout日志（可选）：oss://batch-input-1/gx-test/batch-hello-stderr/
+
+Stderr日志（可选）：oss://batch-input-1/gx-test/batch-hello-stdout/
+
+程序运行命令：python hello.py
+
+![newtemplate2](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newtasktemplate2.PNG)     
+
+3. 环境变量（可选）
+
+不配置环境变量，下一步
+
+![newtemplate3](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newtasktemplate3.PNG)  
+
+4. 预览任务JSON文件，确认无误后，单击“完成”
+
+![newtemplate4](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newtasktemplate4.PNG)  
+
+5. 查看任务模板
+
+![tasklist](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/tasklist.PNG) 
 
 ### step 3：提交作业
 
