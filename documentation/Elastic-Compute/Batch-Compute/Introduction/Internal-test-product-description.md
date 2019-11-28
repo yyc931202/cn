@@ -115,7 +115,7 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
 
 ### Step 2 创建任务模板
 
-1. 进入批量计算控制台，单击左侧导航栏“任务模板”--“新建任务模板”。
+1. 进入批量计算控制台，单击左侧导航栏“任务模板”，选择“新建任务模板”。
 
 2. 配置基本信息：
 
@@ -149,7 +149,7 @@ batch默认运行在云主机中，用户可将执行程序包置于对象存储
 
 执行方式：package（程序包存储于对象存储OSS中，将hello.py文件打包为.zip文件上传至对象存储OSS相应bucket中）
 
-程序包地址：oss://batch-input-1/gx-test/
+程序包地址：oss://batch-input-1/gx-test/hello.zip
 
 Stdout日志（可选）：oss://batch-input-1/gx-test/batch-hello-stderr/
 
@@ -175,10 +175,44 @@ Stderr日志（可选）：oss://batch-input-1/gx-test/batch-hello-stdout/
 
 ### step 3：提交作业
 
+1. 单击左侧导航栏“作业”，选择“新建作业”。
+
+2. 配置作业信息
+
+作业名称：helloworld
+
+优先级：0
+
+![newjob1](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newjob1.PNG) 
+
+3. 在下方画布左侧选择配置好的任务模板--“batch-hello”，选中拖至画布中。
+
+![newjob2](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newjob2.jpg) 
+
+4.  双击画布中的任务模板，可在右侧弹出框中修改任务属性，单击“确认”保存修改（此修改只针对当前作业中任务属性，不会修改对应任务模板）。
+
+![newjob3](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/newjob3.PNG) 
+
+5. 确认无误后，单击“完成”。
+
+
 ### step 4：查询结果
 
+在作业列表页，您可以查询作业运行状态及结果。
 
+![jodlist](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/joblist.PNG) 
 
+单击作业名称，进入“作业详情”页，在“任务运行情况”tab页可查看任务运行状态。
+
+![jodtask](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/jobtask.PNG) 
+
+在列表或画布中单击任务名称，进入“任务详情”页，在下方可查询任务中每个实例的运行情况。
+
+![taskinstance](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/taskinstance.PNG) 
+
+单击实例列表右侧“查看日志”，可查看单个实例标准日志和错误日志。
+
+![log](https://github.com/jdcloudcom/cn/blob/batch1125/image/Elastic-Compute/Batch-Compute/log.PNG) 
 
 # 4 操作指南
 
