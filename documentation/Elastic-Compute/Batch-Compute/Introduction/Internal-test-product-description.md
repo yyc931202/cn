@@ -299,7 +299,7 @@ batch计算环境只支持创建在用户VPC中，如您选择云文件服务CFS
 
 盘挂载至实例后将作为实例的一个设备被系统识别，以设备名进行区分不同磁盘，随后经过分区、格式化、实例内挂载（Linux配置挂载点，Windows分配盘符）等操作来实现磁盘在系统内的正确配置和使用。
 
-Linux系统和Windows系统对设备的命名方式虽然不同，但是具有相同的顺序索引规则（见下表），详情可参见 [制作私有镜像](https://docs.jdcloud.com/cn/virtual-machines/assign-device-name)。
+Linux系统和Windows系统对设备的命名方式虽然不同，但是具有相同的顺序索引规则（见下表），详情可参见 [分配设备名](https://docs.jdcloud.com/cn/virtual-machines/assign-device-name)。
 
 |              | 控制台显示          | Linux系统显示       | Windows系统显示 |
 | ------------ | ------------------- | ------------------- | --------------- |
@@ -310,7 +310,7 @@ Linux系统和Windows系统对设备的命名方式虽然不同，但是具有�
 
 用户数据可选择存储于云文件服务CFS，以下简称“CFS”。创建batch计算环境或任务模板前，请先在CFS控制台[创建文件存储](https://docs.jdcloud.com/cn/cloud-file-service/creating-file-system)。
 
-**说明：
+#### 使用说明：
 
 * 网络：CFS与计算环境实例必须创建在同一VPC中；
 
