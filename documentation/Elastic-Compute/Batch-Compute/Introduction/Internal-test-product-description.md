@@ -308,9 +308,9 @@ Linux系统和Windows系统对设备的命名方式虽然不同，但是具有�
 
 ### 4.1.4 挂载云文件服务CFS
 
-用户数据可选择存储于云文件服务CFS，以下简称“CFS”。
+用户数据可选择存储于云文件服务CFS，以下简称“CFS”。创建batch计算环境或任务模板前，请先在CFS控制台[创建文件存储](https://docs.jdcloud.com/cn/cloud-file-service/creating-file-system)。
 
-说明：
+**说明：
 
 * 网络：CFS与计算环境实例必须创建在同一VPC中；
 
@@ -326,10 +326,14 @@ Linux系统和Windows系统对设备的命名方式虽然不同，但是具有�
   
    Linux系统目的地址格式示例： D：
   
-  
 
+3DMAX用户请注意：  
+
+因京东云CFS中的所有锁定都是建议性锁定，因此使用3Dmax进行渲染的用户在使用CFS时，需要CFS在后端进行单独的适配才能够支持3Dmax的使用。同时，该适配会对CFS的读写性能造成一定影响。使用3Dmax的用户可[提交工单](https://ticket.jdcloud.com/applyorder/applyportal)，提供文件存储ID后，申请对CFS进行3Dmax使用适配。
 
 ### 4.1.5 挂载OSS
+
+
 
 ### 4.1.6 环境变量
 
