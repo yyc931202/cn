@@ -316,22 +316,56 @@ Linux系统和Windows系统对设备的命名方式虽然不同，但是具有�
 
 * 挂载CFS支持读写；
 
-* 挂载格式：同时指定源地址和目的地址，以CFS输入数据挂载为例：
+* 挂载格式：同时指定源地址和目的地址，以输入数据挂载为例：
  
    源地址格式以cfs://为前缀，后面加上cfs共享地址，例如：cfs://10.0.0.30
    
    目的地址格式根据计算环境运行环境：
   
-   Windows系统目的地址格式示例： /home/subpath/ 
+   Windows系统目的地址格式示例：D： 
   
-   Linux系统目的地址格式示例： D：
-  
+   Linux系统目的地址格式示例：/home/subpath/
 
 3DMAX用户请注意：  
 
 因京东云CFS中的所有锁定都是建议性锁定，因此使用3Dmax进行渲染的用户在使用CFS时，需要CFS在后端进行单独的适配才能够支持3Dmax的使用。同时，该适配会对CFS的读写性能造成一定影响。使用3Dmax的用户可[提交工单](https://ticket.jdcloud.com/applyorder/applyportal)，提供文件存储ID后，申请对CFS进行3Dmax使用适配。
 
+或者，您可以将CFS数据写入至云硬盘后执行，无需适配。
+
 ### 4.1.5 挂载OSS
+
+若计算环境为Linux系统，数据可选择存储于对象存储OSS，以下简称“OSS”。
+
+#### 4.1.5.1 挂载数据目录
+
+使用说明：
+
+* 地域：OSS与计算环境实例请创建在同一地域中；
+
+* 挂载OSS支持读写；
+
+* 挂载格式：同时指定源地址和目的地址，以输入数据挂载为例：
+ 
+   源地址格式以oss://为前缀，后面加上cfs共享地址，例如：oss://bucket/
+   
+   目的地址格式根据计算环境运行环境：
+  
+   Windows系统目的地址格式示例：D：
+  
+   Linux系统目的地址格式示例： /home/subpath/ 
+   
+   注意：OSS挂载到Linux，不支持bucket下的subpath目录挂载，只能挂载bucket到Linux，若您想将 oss://bucket/bucketsubpath/挂载至linux的/home/subpath/ 中，目的地地址的/home/subpath/最后级增加bucket的/bucketsubpath/路径，如： /home/subpath/bucketsubpath/。
+   
+   
+#### 4.1.5.2 程序包地址
+
+用户程序可制作于私有镜像中作为local执行，或上传至OSS。
+
+使用说明：
+
+* 上传至OSS的程序包必须是.ZIP格式
+
+* 程序包执行路径：oss://bucket/bucketsubpath/helloworld.ZIP
 
 
 
