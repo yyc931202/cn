@@ -18,7 +18,7 @@
 手动安装，请登录到待安装/异常主机，执行以下命令
 
 ```shell
-curl -fsSL http://deploy-code-vpc.jdcloud.com/dl-ifrit-agents/install_deploy | bash
+curl -fsSL https://deploy-code-vpc.jdcloud.com/dl-ifrit-agents/install | bash -s zero-agent
 ```
 
 以向华北-北京地域的云主机安装Agent为例，
@@ -31,6 +31,6 @@ Agent状态为“正常”、“异常”两种。
 
 **版本升级**
 
-当Agent发布新版本时，将自动进行版本升级，且更新过程对用户透明，不会影响云部署的功能使用。
+当Agent发布新版本时，将自动进行版本升级，且更新过程对用户透明，不会影响云部署和运维工具的功能使用。
 
 3）批量安装agent

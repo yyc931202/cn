@@ -1,4 +1,4 @@
-# 基础参数
+# 操作基础参数
 
 基础参数是每一个操作都会带有的参数。
 
@@ -16,7 +16,7 @@
 
 | 字段     | 必须 | 类型   | 含义                                                         | 示例                 |
 | -------- | ---- | ------ | ------------------------------------------------------------ | -------------------- |
-| connect  | 否   | string | 逻辑连接， _enum_: `and`、`or`，默认空，左优先               | success              |
-| key      | 是   | string | 要比较的变量名，内置支持 `$name.code`、`$name.stdout`、`$name.stderr` 三种方式获取已执行完成操作的返回值、标准输出、标准错误 | prepare_install:code |
+| connect  | 否   | string | 逻辑连接， _enum_: `and`、`or`，默认空，左优先               |                      |
+| key      | 是   | string | 要比较的变量名，内置支持 `$name.code`获取已执行完成操作的返回值 | prepare_install.code |
 | operator | 是   | string | _enum_: <br>`>`、`<`、`=`、`>=`、`<=`、`!=`、`<`<br>`in`-key 字符串包含于 value 字符串<br>`notIn`-key 字符串不包含于 value 字符串<br>`contain`-key 字符串包含 value 字符串<br>`notContain`-key 字符串不包含 value 字符串 | notIn                |
-| value    | 是   | string | 要比较的值                                                   | success              |
+| value    | 是   | string | 要比较的值，`$name.code`返回值只有0，1.代表正常结束和异常结束 | 0                    |

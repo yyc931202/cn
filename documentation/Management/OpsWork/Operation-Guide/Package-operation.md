@@ -1,12 +1,14 @@
 # 软件操作 schema
 
-| 字段     | 必须 | 类型   | 含义                                                         | 示例          |
-| -------- | ---- | ------ | ------------------------------------------------------------ | ------------- |
-| name     | 是   | string | 包名                                                         | openjdk-devel |
-| provider | 是   | string | green代表绿色安装，auto代表从yum或apt源自动安装              | green         |
-| version  | 是   | string | 版本。provider字段为auto时该字段无效。                       | 1.0.1         |
-| rootdir  | 否   | string | 自定义根路径，默认 /usr/opt。provider字段为auto时该字段无效。 | /usr/opt      |
-| force    | 否   | bool   | 覆盖已有版本（默认 true）；如传 false 且探测到已安装其他版本，返回127 | true          |
+| 字段             | 必须 | 类型   | 含义                                                         | 示例          |
+| ---------------- | ---- | ------ | ------------------------------------------------------------ | ------------- |
+| name             | 是   | string | 包名                                                         | openjdk-devel |
+| provider         | 是   | string | green代表绿色安装，auto代表从yum或apt源自动安装              | green         |
+| version          | 是   | string | 版本。provider字段为auto时该字段无效。                       | 1.0.1         |
+| rootdir          | 否   | string | 自定义根路径，默认 /usr/opt。provider字段为auto时该字段无效。 | /usr/opt      |
+| force            | 否   | bool   | 覆盖已有版本（默认 true）；如传 false 且探测到已安装其他版本，返回127 | true          |
+| action           | 否   | string | install或upgrade，代表自动从源安装或升级。在provider为auto时必填。 | install       |
+| version_optional | 否   | string | provider为green时，可以支持的version版本。                   |               |
 
 **tips：**
 
