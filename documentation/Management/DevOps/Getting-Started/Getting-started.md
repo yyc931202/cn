@@ -10,7 +10,7 @@
 
 1、 请使用京东云账户登录DevOps，登录地址：https://devops.jdcloud.com/
  
-![image](https://github.com/jdcloudcom/cn/image/DevOps/image/DevOps/Onboard.png)
+![](/image/DevOps/Onboard.png) 
 
 2、 初次登录会引导创建租户
 
