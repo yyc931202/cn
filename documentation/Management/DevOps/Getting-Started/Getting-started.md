@@ -8,7 +8,11 @@
 
 ![image](https://github.com/jdcloudcom/cn/blob/DevOps/image/DevOps/Getting-Started1.png)
 
-请使用京东云账户登录DevOps，初次登录会引导创建租户
+1、 请使用京东云账户登录DevOps，登录地址：https://devops.jdcloud.com/
+ 
+![image](https://github.com/jdcloudcom/cn/blob/DevOps/image/DevOps/Getting-Started3.png)
+
+2、 初次登录会引导创建租户
 
 ![image](https://github.com/jdcloudcom/cn/blob/DevOps/image/DevOps/Starting2.png)
 
