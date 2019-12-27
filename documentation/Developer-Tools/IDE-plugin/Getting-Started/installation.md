@@ -19,16 +19,3 @@
    在File-Preferences-Settings-Extensions-JDCloud中填入AK/SK，并设置要使用的region，目前仅支持单region。填写AK/SK之后可以直接进行连接测试。
 
    ![AK管理2.png](../../../../image/IDE-plugin/vscode6.png)
-
-目前IDE插件支持VScode，并从内置的插件市场中直接安装。
-4. public key导入
-
-   windows存放public key的位置是：
-
-   > C:\Users\XXXXX\\.ssh
-
-   在该目录下，使用命令ssh-keygen生产密钥。并将public key导入到代码托管中。具体位置在：
-
-   代码托管-管理-SSH key管理，参考文档：
-
-   > https://docs.jdcloud.com/cn/codecommit/ssh-key
