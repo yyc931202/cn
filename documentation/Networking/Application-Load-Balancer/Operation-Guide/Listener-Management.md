@@ -127,4 +127,4 @@
 ## 配置监听器支持多证书
 <div id="user-content-5"></div>
 
-当同一个监听器为多个域名提供服务时，可基于域名为不同的服务请求配置不同的证书，多证书的配置请参见[证书管理](../Operation-Guide/Certificates-Management.md)
+当同一个监听器为多个域名提供服务时，可基于域名为不同的服务请求配置不同的证书，多证书的配置请参见[证书管理](../Operation-Guide/Certificates-Management.md)。
