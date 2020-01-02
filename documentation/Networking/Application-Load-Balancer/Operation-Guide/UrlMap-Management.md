@@ -2,7 +2,7 @@
 
 [原理介绍](urlmap-management#user-content-1)
 
-[添加转发规则组](urlmap-management#user-content-2)
+[添加转发规则组(转发规则、重定向规则)](urlmap-management#user-content-2)
 
 [管理转发规则组](urlmap-management#user-content-3)
 
