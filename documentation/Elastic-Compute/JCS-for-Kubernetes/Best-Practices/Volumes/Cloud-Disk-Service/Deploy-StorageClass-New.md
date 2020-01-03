@@ -45,7 +45,7 @@ volumeBindingMode: WaitForFirstConsumer
   - volumeBindingMode：可选参数包括WaitForFirstConsumer和Immediate，默认值为Immediate。
 
 
-4、您可在创建持久化存储声明（ Persistent Volume Claim）时，通过storageClassName字段关联某一指定的storageclass资源，根据storageClass定义动态创建并绑定一个持久化存储（Persistent Volume）或直接绑定具有相同storageClassName且参数符合要求的持久化存储（Persistent Volume）；更多详情参考[部署持久化存储](https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-pv)  ；
+4、您可在创建持久化存储声明（ Persistent Volume Claim）时，通过storageClassName字段关联某一指定的storageclass资源，根据storageClass定义动态创建并绑定一个持久化存储（Persistent Volume）或直接绑定具有相同storageClassName且参数符合要求的持久化存储（Persistent Volume）；更多详情参考[部署CSI持久化存储](./Deploy-PV-New.md)  ；
 
 5、更多storageClass参数说明，参考[Kubernetes 参数说明文档](https://kubernetes.io/docs/concepts/storage/storage-classes/)。 
 
