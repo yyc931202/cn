@@ -23,7 +23,7 @@ spec:
     fsType: ext4  
     volumeHandle: vol-xxxxxxxxx      #云硬盘ID请使用与kubernetes集群同可用区的且状态为可用的云硬盘ID替换
   storageClassName: jdcloud-ssd
-~
+
 ```     
 **参数说明：**
 
@@ -50,7 +50,6 @@ spec:
   - 访问模式包括：  
     - ReadWriteOnce——该卷可以被单个节点以读/写模式挂载。在命令行中，访问模式缩写为：RWO - ReadWriteOnce
   
-
 注：  
 - 由于云硬盘限制一个云硬盘只能同时挂载一个云主机,在使用基于pvc的pod时，建议使用replicas=1来创建一个部署集。StatefulSet可解决多副本问题。  
 - pod迁移,pvc迁移(卸载旧实例/挂载新实例)默认35秒。  
@@ -87,6 +86,7 @@ spec:
       type: jdcloud-csi-ebs
   storageClassName: jdcloud-ssd
 ```
+
 **3. 创建Pod**
 ```
 kind: Pod
