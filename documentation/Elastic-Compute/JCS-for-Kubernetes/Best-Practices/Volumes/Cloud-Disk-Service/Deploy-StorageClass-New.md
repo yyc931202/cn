@@ -29,6 +29,14 @@ volumeBindingMode: WaitForFirstConsumer
 **参数说明：**  
 1、provisioner：zbs.csi.jdcloud.com，且不可修改，标识使用京东云云硬盘Provisioner插件创建。
 
+2、type：可以选择以下3种云硬盘类型
+
+|StorageClass type | 云硬盘类型   |容量范围  |步长|
+| ------ | ------ | ------ |------ |
+|hdd.std1	|容量型hdd | [20-16000]GiB  |10GiB|
+|ssd.gp1	|通用型ssd | [20-16000]GiB  |10GiB|
+|ssd.io1	|性能型ssd | [20-16000]GiB  |10GiB|
+
 2、reclaimPolicy：由 storage class 动态创建的 Persistent Volume 会在的 reclaimPolicy 字段中指定回收策略，可以是 Delete 或者 Retain。如果 storageClass 对象被创建时没有指定 reclaimPolicy ，它将默认为 Delete。
 
 3、parameters  
