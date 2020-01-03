@@ -10,6 +10,8 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: pv-csi-static
+  labels:
+    type: jdcloud-csi-ebs
 spec:
   capacity:
     storage: 20Gi
@@ -66,7 +68,7 @@ spec:
 
 2、访问模式包括：ReadWriteOnce——该卷可以被单个节点以读/写模式挂载。在命令行中，访问模式缩写为：RWO - ReadWriteOnce  
 
-3、京东云为PersistentVolume提供了插件，插件类型为：jdcloudElasticBlockStore  
+3、storageClassName: 指定对应的云硬盘的storageClass  
   
 
 ```
@@ -77,59 +79,35 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""
   resources:
     requests:
-      storage: 30Gi
+      storage: 20Gi
   selector:
     matchLabels:
-      type: jdcloud-ebs
+      type: jdcloud-csi-ebs
+  storageClassName: jdcloud-ssd
 ```
 **3. 创建Pod**
 ```
 kind: Pod
 apiVersion: v1
 metadata:
-  name: pod-static
+  name: test-csi-static
 spec:
   volumes:
-    - name: pv-static
+    - name: test-csi
       persistentVolumeClaim:
-        claimName: pv-static-pvc
+        claimName: static-csi-pvc
   containers:
     - name: busybox-static
       image: busybox
       command:
          - sleep
          - "600"
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       volumeMounts:
         - mountPath: "/usr/share/mybusybox/"
-          name: pv-static
-```
-
-**4. 您也可以直接创建使用静态存储的pod**
-```
-kind: Pod
-apiVersion: v1
-metadata:
-  name: pod-static
-spec:
-  volumes:
-    - name: pv-static
-      jdcloudElasticBlockStore:
-        volumeID: vol-ogcbkdjg7x      #云硬盘ID请使用与kubernetes集群同地域的且状态为可用的云硬盘ID替换
-        fsType: xfs
-  containers:
-    - name: busybox-static
-      image: busybox
-      command:
-         - sleep
-         - "600"
-      imagePullPolicy: Always
-      volumeMounts:
-        - mountPath: "/usr/share/mybusybox/"
-          name: pv-static
+          name: test-csi
 ```
 
 
@@ -152,7 +130,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc1
+  name: dynamic-pvc
 spec:
   accessModes:
     - ReadWriteOnce
@@ -161,14 +139,28 @@ spec:
     requests:
       storage: 20Gi
 ```  
-3、查看集群的PVC  
+3、创建Pod  
 
-`kubectl get pvc`  
-
-输出:  
 ```
-NAME                                         STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-pvc1                                         Bound     pvc-73d8538b-ebd6-11e8-a857-fa163eeab14b   20Gi       RWO            jdcloud-ssd    18s
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-csi-dpvc
+spec:
+  volumes:
+    - name: test-csi
+      persistentVolumeClaim:
+        claimName: dynamic-pvc
+  containers:
+    - name: busybox-static
+      image: busybox
+      command:
+         - sleep
+         - "600"
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - mountPath: "/usr/share/mybusybox/"
+          name: test-csi
 ```  
 4、查看集群的PV  
 
@@ -177,6 +169,6 @@ pvc1                                         Bound     pvc-73d8538b-ebd6-11e8-a8
 输出：  
 ```
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS    CLAIM                                                STORAGECLASS   REASON    AGE
-pvc-73d8538b-ebd6-11e8-a857-fa163eeab14b   20Gi       RWO            Delete           Bound     default/pvc1                                         jdcloud-ssd              2m
+pvc-17950c18-2dd8-11ea-a0a9-fa163e4cf8ac   20Gi       RWO            Delete           Bound    default/dynamic-pvc                 jdcloud-ssd                     2m56s
 ```  
 **注**：基于StorageClass jdcloud-ssd，为PVC创建了卷。一旦 PV 和 PVC 绑定后，PersistentVolumeClaim 绑定是排他性的，不管它们是如何绑定的。 PVC 跟 PV 绑定是一对一的映射。
