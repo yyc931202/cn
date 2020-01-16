@@ -44,7 +44,7 @@ Zookeeper支持通过京东云云主机或客户端方式连接实例。
 
 #### 通过京东云云主机访问
 1.	登录Zookeeper控制台，创建Zookeeper实例 。</br>
-2.	登录[云主机控制台](https://cns-console.jdcloud.com/host/compute/list)，创建和消息队列 Kafka 版具有相同私有网络和子网的云主机，并[获取公网IP](https://docs.jdcloud.com/cn/virtual-machines/associate-elastic-ip)。</br>
+2.	登录[云主机控制台](https://cns-console.jdcloud.com/host/compute/list)，创建和Zookeeper具有相同私有网络和子网的云主机，并[获取公网IP](https://docs.jdcloud.com/cn/virtual-machines/associate-elastic-ip)。</br>
 3.	在本地通过SSH登录云主机，用curl命令访问。指令格式说明如下：</br>
 
 ```
