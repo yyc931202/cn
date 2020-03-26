@@ -26,15 +26,15 @@ items:
 - name: 入门指南
   items:
     - name: 创建实例
-      href: Getting-Started/Create-zk.md
+      href: Getting-Started/Create-ZK.md
     - name: 连接实例
-      href: Getting-Started/Connect-zk.md
+      href: Getting-Started/Connect-ZK.md
 - name: 操作指南
   items:
     - name: 规格变更
-      href: Operation-Guide/Change-zk.md
+      href: Operation-Guide/Change-ZK.md
     - name: 删除实例
-      href: Operation-Guide/Delete-zk.md
+      href: Operation-Guide/Delete-ZK.md
     - name: 监控报警
       href: Operation-Guide/Monitoring.md
 - name: 常见问题
