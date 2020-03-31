@@ -1,5 +1,5 @@
 ## 产品概述
-Zookeeper是一项基于开源Zookeeper的分布式应用程序协调服务，完全兼容了开源产品的标准接口，旨在简化分布式系统构建的任务，给开发人员提供一套容易理解和开发的接口，可用于配置维护、分布式同步、分布式通知和协调服务、组服务等。</br>
+分布式协调服务Zookeeper版是一项基于开源Zookeeper的分布式应用程序协调服务，完全兼容了开源产品的标准接口，旨在简化分布式系统构建的任务，给开发人员提供一套容易理解和开发的接口，可用于配置维护、分布式同步、分布式通知和协调服务、组服务等。</br>
 
 ## 产品优势
 
@@ -42,7 +42,7 @@ Zookeeper是一项基于开源Zookeeper的分布式应用程序协调服务，�
 ### 创建实例
 
 #### 前提条件
-- 已注册京东云账号，并完成实名认证。如果还没有账号请 [注册](https://accounts.jdcloud.com/p/regPage?source=jdcloud&ReturnUrl=https%3a%2f%2fuc.jdcloud.com%2fpassport%2fcomplete%3freturnUrl%3dhttps%3a%2f%2fwww.jdcloud.com)或 [实名认证](https://uc.jdcloud.com/account/certify)。
+- 已注册京东智联云账号，并完成实名认证。如果还没有账号请 [注册](https://accounts.jdcloud.com/p/regPage?source=jdcloud&ReturnUrl=https%3a%2f%2fuc.jdcloud.com%2fpassport%2fcomplete%3freturnUrl%3dhttps%3a%2f%2fwww.jdcloud.com)或 [实名认证](https://uc.jdcloud.com/account/certify)。
 - 如计费类型选择按配置计费，请确认您的账户余额（包括代金券）能满足您的使用。</br>
 
 #### 操作步骤
@@ -62,7 +62,7 @@ Zookeeper是一项基于开源Zookeeper的分布式应用程序协调服务，�
 4. 跳转支付确认页面成功付款后返回实例列表页面。您创建的实例将展现在实例列表中。且实例状态为“创建中”，耐心等待几分钟，创建成功后实例状态会变为“运行”。如果实例创建失败，请根据界面提示，重新创建实例。</br>
 
 ### 连接实例
-Zookeeper支持通过京东云云主机或客户端方式连接实例。
+Zookeeper支持通过京东智联云云主机或客户端方式连接实例。
 
 #### 通过京东云云主机访问
 1.	登录Zookeeper控制台，创建Zookeeper实例 。</br>
