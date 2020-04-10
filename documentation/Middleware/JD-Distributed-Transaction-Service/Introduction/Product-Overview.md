@@ -12,6 +12,6 @@ TCC 模式是一种补偿性分布式事务，包含 Try、Confirm、Cancel 三�
 京东智联云分布式事务（JDCloud&AI Distributed Transaction Service），简称JDTS，是京东智联云上提供实现分布式环境下保障业务一致性的产品。JDTS支持分布式长事务下的AT模式和TCC模式，提供了多种主流开发框架的SDK接入方案（Spring、Springboot、SringCloud、Dubbo等多种RPC方案），以较少代码侵入性最小化客户接入成本。
  
 
-![](../../../../image/Internet-Middleware/Mesh/struct-1.png)
+![](../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/struct-1.png)
 
 
