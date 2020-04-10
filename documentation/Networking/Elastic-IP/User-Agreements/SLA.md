@@ -4,7 +4,7 @@
 
 （1）自有多线路（BGP）弹性公网IP：用WHOIS工具查询、netname为JDCOM的多线路BGP IP；
 
-（2）边缘公网IP：接入点在边缘节点的弹性公网IP，查看IP时、“IP类型”为“边缘公网IP（Edge Elastic IP）”。
+（2）边缘公网IP：接入点在边缘节点的弹性公网IP，查看IP“IP类型”为“边缘公网IP（Edge Elastic IP）”。
 
 其他非边缘节点接入、并且线路类型为单线的EIP或者netname不为JDCOM的多线路BGPIP不在本服务等级协议覆盖范围内。
 
