@@ -2,13 +2,16 @@
 
 控制台给用户提供了事务服务信息总览，方便用户查询事务交易记录、定位事务异常问题。用户可根据业务规模购买相应规格的事务服务实例。
 
-启用服务步骤概括如下：
+启用服务步骤概括如下：首先购买事务服务，然后添加注释或添加依赖方式启动服务。添加成功后，您将可在控制台事务总览页中查看到该条事务的详情。
 
--	首先购买事务服务，
+本章节将向您介绍如下内容：
 
--	然后添加注释或添加依赖方式启动服务。
-
--	添加成功后，您将可在控制台事务总览页中查看到该条事务的详情。
+- [创建JDTS服务](instance-type-family#cjjdtsfw)
+- [接入JDTS服务](instance-type-family#jrjdtsfw)
+- [查看事务信息](instance-type-family#ckswxx)
+- [处理超时事务](instance-type-family#clcssw)
+- [卸载](instance-type-family#xz)
+- [资源监控](instance-type-family#zyjk)
 
 
 ### 入口
@@ -23,14 +26,16 @@
 
 ## 操作说明
 
+<div id="cjjdtsfw"></div>
+
 ### 创建JDTS服务
 
 JDTS通过事务分组管理来事务会话。一次事务会话一般会包含一个或多个分支事务。因此，创建1个事务分组的过程即创建JDTS服务的过程。另外注意创建服务时需要注意同用户server 在同一个VPC中。
 
 #### 第1步：登录控制台，点击新建。菜单位置：互联网中间件>分布式事务 
 
-![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Servicek/frontpage.png)
- 
+![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/frontpage.png)
+                   
 
 #### 第2步：根据业务需求，配置事务服务。
 您在此购买页中，需选择当前事务服务将创建的地域和可用区，输入事务分组名称，根据评估业务峰值来选择 TPS 规格，然后单击立即购买。
@@ -43,6 +48,8 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 ![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/jbxx.png)
  	
 
+<div id="jrjdtsfw"></div>
+
 ### 接入JDTS服务
 #### 第1步：在基本信息中，找到集群服务地址
   
@@ -53,6 +60,7 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 
 具体可根据DEMO使用说明： [DEMO](../../Getting-Started/Basic-Example.md) 。
 
+<div id="ckswxx"></div>
 
 ### 查看事务信息
 当您已经完成配置JDTS服务后，将可以在控制台上对事务服务信息进行查询。
@@ -70,6 +78,7 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 ![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-2.png)
  	
 
+<div id="clcssw"></div>
 
 ### 处理超时事务
 目前JDTS提供自动重试机制，帮助用户处理超时事务。
@@ -82,6 +91,7 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 
 4)	结束的事务交易数据保留3天，3天后数据将被清除。
 
+<div id="xz"></div>
 
 ### 卸载
 - STEP1:登录控制台，在事务分组列表中，选择要删除的事务分组，点击操作中的“删除”。
@@ -89,6 +99,7 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 - STEP2:删除后，相关依赖该服务的业务将不可用，您还需要在代码中删除修改与该条事务相关的引用信息完成变更或者卸载。
 
 
+<div id="zyjk"></div>
 
 ### 资源监控
 
