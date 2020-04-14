@@ -21,4 +21,6 @@
 	- 支持工单提交、人工客服，即时解答用户问题
 ## 下载和使用
 您可以访问[京东智联云App下载页](https://console.jdcloud.com/download.html)了解产品，也可以直接扫码下载App。
+
 ![](../../../image/JdcloudApp/App下载二维码.png)
+
