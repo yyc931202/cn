@@ -24,7 +24,7 @@ items:
     - name: 续费
       href: finance/Renew.md
     - name: 订单
-      href: finance/order.md
+      href: finance/Order.md
   - name: 服务中心
     items: 
     - name: 提交工单
