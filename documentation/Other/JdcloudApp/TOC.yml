@@ -7,6 +7,10 @@ items:
   items:
   - name: 登录注册
     items: 
+    - name: 账号登录
+      href: login/Login.md
+    - name: 账号注册
+      href: login/Register.md
     - name: 扫码登录
       href: login/ScancodeLogin.md
   - name: 资源运维
