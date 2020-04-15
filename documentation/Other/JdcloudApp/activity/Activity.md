@@ -6,9 +6,11 @@
 ![](../../../../image/JdcloudApp/精选.png)
 
 ![](../../../../image/JdcloudApp/活动.png)
+
 2.行业热点资讯
 
 ![](../../../../image/JdcloudApp/资讯.png)
+
 3.开发者社区技术交流平台
 
 ![](../../../../image/JdcloudApp/开发者社区.png)
