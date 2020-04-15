@@ -9,8 +9,6 @@ items:
     items: 
     - name: 扫码登录
       href: login/ScancodeLogin.md
-    - name: 本机一键登录
-      href: login/PhoneLogin.md
   - name: 资源运维
     items: 
     - name: 资源管理
