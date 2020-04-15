@@ -3,9 +3,7 @@
 
 1.最新促销活动
 
-![](../../../../image/JdcloudApp/精选.png)
-
-![](../../../../image/JdcloudApp/活动.png)
+![](../../../../image/JdcloudApp/精选.png) ![](../../../../image/JdcloudApp/活动.png)
 
 2.行业热点资讯
 
