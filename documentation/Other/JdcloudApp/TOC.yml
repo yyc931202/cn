@@ -21,11 +21,11 @@ items:
       href: resource/Monitor.md
   - name: 财务服务
     items: 
-    - name: 充值
+    - name: 余额充值
       href: finance/Charge.md
-    - name: 续费
+    - name: 资源续费
       href: finance/Renew.md
-    - name: 支付
+    - name: 订单支付
       href: finance/Order.md
   - name: 活动资讯
     items: 
