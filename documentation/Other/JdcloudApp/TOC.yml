@@ -27,6 +27,10 @@ items:
       href: finance/Renew.md
     - name: 支付
       href: finance/Order.md
+  - name: 活动资讯
+    items: 
+    - name: 活动资讯
+      href: activity/Activity.md
   - name: 服务中心
     items: 
     - name: 提交工单
