@@ -81,11 +81,11 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 
 #### 第2步：在查询界面中，您可按需选择事务时间段、事务状态、或关键词，来查询事务信息。
     
-![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-1.png)
+![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-1-new.png)
  	
 #### 第3步：在查询结果列表中，将提供主事务 ID、服务名、方法名、事务分指数、请求开始时间、状态、超时时长等信息。
    
-![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-2.png)
+![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-2-new.png)
  	
 
 <div id="clcssw"></div>
