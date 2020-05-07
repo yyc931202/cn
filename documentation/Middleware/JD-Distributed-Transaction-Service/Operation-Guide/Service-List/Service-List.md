@@ -6,12 +6,12 @@
 
 本章节将向您介绍如下内容：
 
-- [创建JDTS服务](instance-type-family#cjjdtsfw)
-- [接入JDTS服务](instance-type-family#jrjdtsfw)
-- [查看事务信息](instance-type-family#ckswxx)
-- [处理超时事务](instance-type-family#clcssw)
-- [卸载](instance-type-family#xz)
-- [资源监控](instance-type-family#zyjk)
+- 创建JDTS服务
+- 接入JDTS服务
+- 查看事务信息
+- 处理超时事务
+- 卸载
+- 资源监控
 
 
 ### 入口
@@ -26,7 +26,7 @@
 
 ## 操作说明
 
-<div id="cjjdtsfw"></div>
+
 
 ### 创建JDTS服务
 
@@ -53,7 +53,6 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 ![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/jbxx.png)
  	
 
-<div id="jrjdtsfw"></div>
 
 ### 接入JDTS服务
 
@@ -68,7 +67,6 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 
 
 
-<div id="ckswxx"></div>
 
 ### 查看事务信息
 
@@ -88,7 +86,6 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 ![](../../../../../image/Internet-Middleware/JD-Distributed-Transaction-Service/cx-2-new.png)
  	
 
-<div id="clcssw"></div>
 
 ### 处理超时事务
 目前JDTS提供自动重试机制，帮助用户处理超时事务。
@@ -101,7 +98,8 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 
 4)	结束的事务交易数据保留3天，3天后数据将被清除。
 
-<div id="xz"></div>
+
+
 
 ### 卸载
 
@@ -112,7 +110,7 @@ JDTS通过事务分组管理来事务会话。一次事务会话一般会包含�
 您还需要在代码中删除修改与该条事务相关的引用信息完成变更或者卸载。
 
 
-<div id="zyjk"></div>
+
 
 ### 资源监控
 
