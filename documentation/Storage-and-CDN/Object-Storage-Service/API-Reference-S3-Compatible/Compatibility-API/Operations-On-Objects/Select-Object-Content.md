@@ -9,7 +9,33 @@ Host: <BUCKET_NAME>.s3.<REGION>.jcloud-oss.com
 Date: date
 Authorization: authorization string (See Authenticating Requests (AWS Signature Version4))
 
-Request body 
+<SelectObjectContentRequest>
+   <Expression>string</Expression>
+   <ExpressionType>string</ExpressionType>
+   <RequestProgress>
+      <Enabled>boolean</Enabled>
+   </RequestProgress>
+   <InputSerialization>
+      <CompressionType>string</CompressionType>
+      <CSV>
+         <AllowQuotedRecordDelimiter>boolean</AllowQuotedRecordDelimiter>
+         <Comments>string</Comments>
+         <FieldDelimiter>string</FieldDelimiter>
+         <FileHeaderInfo>string</FileHeaderInfo>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+   </InputSerialization>
+   <OutputSerialization>
+      <CSV>
+         <FieldDelimiter>string</FieldDelimiter>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <QuoteFields>string</QuoteFields>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+</SelectObjectContentRequest>
 ```
 ### 请求参数
 无请求参数
@@ -50,10 +76,37 @@ QuoteCharacter|指定引用符号，不能为空。如"a,b"，将解析为a,b<br
 QuoteEscapeCharacter|指定引用转义符，不能为空。如"""a,b"""将解析为" a,b "<br>类型：String<br>默认值："<br>父标签：CSV|否
 
 ## 响应
+### 语法
+```HTTP/1.1 200
+<?xml version="1.0" encoding="UTF-8"?>
+<Payload>
+   <Records>
+      <Payload>blob</Payload>
+   </Records>
+   <Stats>
+      <Details>
+         <BytesProcessed>long</BytesProcessed>
+         <BytesReturned>long</BytesReturned>
+         <BytesScanned>long</BytesScanned>
+      </Details>
+   </Stats>
+   <Progress>
+      <Details>
+         <BytesProcessed>long</BytesProcessed>
+         <BytesReturned>long</BytesReturned>
+         <BytesScanned>long</BytesScanned>
+      </Details>
+   </Progress>
+   <Cont>
+   </Cont>
+   <End>
+   </End>
+</Payload>
+```
 ### 响应Header
 无特殊Header
 
-### 响应元素
+### 响应元素和响应body
 
 
 ## 示例
