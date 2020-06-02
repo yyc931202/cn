@@ -10,7 +10,7 @@
 
 2、显示登录页面，选择您可登录的方式登录系统
 
-![img](https://github.com/jdcloudcom/cn/blob/joytaobao-beian-2020032802/image/ICP-License-Service/Addition-Filing-cn-2.png)
+![img](https://github.com/jdcloudcom/cn/blob/joytaobao-beian-20200602/image/ICP-License-Service/Addition-Filing-cn-1.png)
 
 ## 二、填写验证备案类型信息
 
