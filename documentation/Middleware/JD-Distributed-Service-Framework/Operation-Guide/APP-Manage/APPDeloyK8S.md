@@ -59,7 +59,7 @@ Kubernetes集群采用管理节点全托管的方式，为用户提供简单易�
 
 在应用管理列表中，选择要部署的K8S应用，点击操作中的“发起部署”，进入配置部署信息页。其中基本信息、容器及镜像信息，为必填部分内容；高级设置部分可以选填。
 
-![](../../../../../image/Internet-Middleware/JD-Distributed-Service-Framework/k8s-pzbs-jbxx.png)
+![](../../../../../image/Internet-Middleware/JD-Distributed-Service-Framework/k8s-pzbs-jbxx-1.png)
 
 
 1、基本信息、容器及镜像信息项说明。
